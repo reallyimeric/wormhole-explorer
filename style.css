@@ -1,0 +1,8 @@
+.textinput:hover
+{
+	box-shadow:0px 0px 3px 2px #95C7F8;
+}
+.textinput:focus
+{
+	box-shadow:0px 0px 3px 2px #FFCD00;
+}
