@@ -1,7 +1,8 @@
+"use strict"
+var xhr
 function query(){
-//var XHR
-XHR=new XMLHttpRequest()
-if (XHR==null) {
+xhr=new XMLHttpRequest()
+if (xhr==null) {
 	alert ("XMLHttpRequest() failed")
 	return
 }
@@ -10,14 +11,18 @@ var param
 var id
 id=document.getElementById("id").value
 param="id="+id
-XHR.open("POST",url,true)
-XHR.onreadystatechange=display
-XHR.send(param)
+xhr.open("POST",url,true)
+xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+xhr.setRequestHeader("Content-length", param.length);
+xhr.setRequestHeader("Connection", "close");
+xhr.onreadystatechange=display
+xhr.send(param)
 }
 
 function display(){
-	alert('displaying,readtstate='+XHR.readyState+'status='+XHR.status)
-	if (XHR.readyState==4){
-		document.getElementById("display_area").innerHTML=XHR.responseText
+	if (xhr.readyState==4||xhr.status==200){
+		var result_json=JSON.parse(xhr.responseText)
+		var result=result_json.id+' '+result_json.parent
+		document.getElementById("display_area").innerHTML=result
 	}
 }
