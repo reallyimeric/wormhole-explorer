@@ -10,9 +10,7 @@
 	$id=$_POST["id"];
 
 	$dsn = 'mysql:unix_socket='.MYSQL_SOCKET_ADDR.';dbname='.DB_NAME;
-	$username = MYSQL_USER;
-	$password = MYSQL_PASSWORD;
-	$dbh = new PDO($dsn, $username, $password);
+	$dbh = new PDO($dsn, MYSQL_USER, MYSQL_PASSWORD);
 	$sql = 'SELECT * FROM '.TABLE_NAME.' WHERE id = :id';
 	$sth = $dbh->prepare($sql);
 	$inputparam = array('id' => $id);
