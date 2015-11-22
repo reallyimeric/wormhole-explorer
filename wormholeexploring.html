@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="keywords" content="wormhole,wormholeexplorer">
+<meta name="description" content="For explorers who travel between wormholes in New Eden">
+<title>Wormhole Exploring...</title>
+<link rel="stylesheet" type="text/css" href="./style.css" />
+<script src="//cdn.bootcss.com/jquery/1.11.2/jquery.min.js"></script>
+<script src="./wormholeexplorer.js"></script>
+<script src="./list_drawer.js"></script>
+</head>
+
+<body>
+<div class="container">
+	<h3>Welcome</h3>
+	<input type="text" class="textinput" id="testinput" value="J000003"/>
+	<input type="button" value="query(p=)" onclick=query("parent",document.getElementById("testinput").value) /><br />
+	<input type="button" value="p=LQ" onclick=query("parent","LQ-AHE") /><br />
+	<input type="button" value="p=KR8" onclick=query("parent","KR8-27") /><br />
+	<br />
+	<div class="result">
+		<p><span id="hover">result:</span></p><br />
+		<div id="display_area" style="min-height:50px"></div><br />
+	</div>
+	<script>document.write("<p style='font-size:150%;font-weight:lighter'>nodb="+nodb+"</p>")</script>
+	<form class="testinput" id="testform" action="./wormholeexplorer.php" method="post">
+		<select name="key">
+  			<option value ="id">id</option>
+			<option value ="parent">parent</option>
+			<option value="child">child</option>
+			<option value="type">type</option>
+		</select>
+		=
+		<input name="value" type="text" value="13"></input><br />
+		<input type="submit" value="SUBMIT"></input><br />
+	</form>
+
+<div>
+<div class="container" style="min-height:300px; min-width:400px; position:absolute; right:0px; top:100px">
+<h4>list</h4>
+<div class="content">
+	<ul class="list_content">
+		<li class="expanded" solarsystemname="LQ-AHE">LQ-AHE
+			<ul></ul>
+		</li>
+		<li class="expanded" solarsystemname="R2TJ-1">R2TJ-1
+			<ul></ul>
+		</li>
+		<li class="expanded" solarsystemname="VULA-I">VULA-I
+			<ul></ul>
+		</li>
+		<li class="expanded" solarsystemname="G-B3PR">G-B3PR
+			<ul></ul>
+		</li>
+		<li class="expanded" solarsystemname="XPUM-L">XPUM-L
+			<ul></ul>
+		</li>
+		<li class="expanded" solarsystemname="KR8-27">KR8-27
+			<ul></ul>
+		</li>
+		<li class="expanded" solarsystemname="LOI-L1">LOI-L1
+			<ul></ul>
+		</li>
+		<li solarsystemname="73-JQO">73-JQO
+			<ul></ul>
+		</li>
+		<li solarsystemname="UTDH-N">UTDH-N
+			<ul></ul>
+		</li>
+		<li solarsystemname="3-BADZ">3-BADZ
+			<ul></ul>
+		</li>
+		<li solarsystemname="GPUS-A">GPUS-A
+			<ul></ul>
+		</li>
+		<li solarsystemname="23M-PX">23M-PX
+			<ul></ul>
+		</li>
+		<li solarsystemname="ZS-2LT">ZS-2LT
+			<ul></ul>
+		</li>
+		<li solarsystemname="DB1R-4">DB1R-4
+			<ul></ul>
+		</li>
+	</ul>
+</div>
+</div>
+</div>
+
+    <input type="text" id="inp" value="梦龙小站" />  
+	<script>
+		    //获取剪贴板数据方法  
+    function getClipboardText(event){  
+    var clipboardData = event.clipboardData || window.clipboardData;  
+    return clipboardData.getData("text");  
+    };  
+      
+      
+    //设置剪贴板数据  
+    function setClipboardText(event, value){  
+    if(event.clipboardData){  
+    return event.clipboardData.setData("text/plain", value);  
+    }else if(window.clipboardData){  
+    return window.clipboardData.setData("text", value);  
+ }   
+    };  
+
+    window.onload = function(){  
+        var oInp = document.getElementById("inp");  	
+      
+        oInp.addEventListener('paste',function(event){  
+            var event = event || window.event;  
+            var text = getClipboardText(event);  
+      
+            if(!/^\d+$/.test(text)){  
+                event.preventDefault();  
+            }  
+        }, false);    
+
+	document.addEventListener('copy',function(event){
+		var text = setClipboardText(event,"so that's it.");
+		event.preventDefault();
+	},false);
+    }  
+
+function selectElement(element) {
+    if (window.getSelection) {
+        var sel = window.getSelection();
+        sel.removeAllRanges();
+        var range = document.createRange();
+        range.selectNodeContents(element);
+        sel.addRange(range);
+    } else if (document.selection) {
+        var textRange = document.body.createTextRange();
+        textRange.moveToElementText(element);
+        textRange.select();
+    }
+}
+
+$('p').mouseenter(function(){
+    selectElement($('span#hover').get(0));
+});
+
+	</script>
+</div>
+
+</body>
+</html>
+

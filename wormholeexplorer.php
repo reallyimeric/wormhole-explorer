@@ -17,22 +17,21 @@
         case "parent":
         break;
         default:
-        return;
+        { echo json_encode(["Unsupported method"]); return; }
     }
 	$sql = 'SELECT * FROM '.TABLE_NAME.' WHERE '.$key.' = :value';
 	$sth = $dbh->prepare($sql);
 	$inputparam = array('value'	=>	$value);
 	if( $sth->execute($inputparam) ){
-		$result = $sth->fetch(PDO::FETCH_ASSOC);
+		$result = $sth->fetchAll(PDO::FETCH_ASSOC);
 		//print_r($result);
 		echo json_encode($result);
 		}
 	else{
-		$result = 'something goes wrong';
+		$result = $sth->errorInfo();
 		//print_r($result);
 		echo json_encode($result);
-		$error = $sth->errorInfo();
-		throw new Exception(json_encode($error));
+		//throw new Exception(json_encode($error));
 		}
 /*
 	$options = array(

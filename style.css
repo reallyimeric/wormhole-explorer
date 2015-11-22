@@ -1,3 +1,4 @@
+/*
 .textinput:hover
 {
 	box-shadow:0px 0px 3px 2px #95C7F8;
@@ -5,4 +6,20 @@
 .textinput:focus
 {
 	box-shadow:0px 0px 3px 2px #FFCD00;
+}
+*/
+.list_content
+{
+	font-family:"monospace"; 
+	cursor:pointer
+}
+.expanded
+{
+	background:url(./expanded.png) no-repeat top right;
+	font-weight:	lighter;
+}
+.collapsed
+{
+	background:url(./collapsed.png) no-repeat top right;
+	font-weight:	bold;
 }
