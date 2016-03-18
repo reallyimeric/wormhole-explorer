@@ -1,14 +1,8 @@
 <?php
-	define("MYSQL_SOCKET_ADDR", "/run/mysqld/mysqld.sock");
-	define("MYSQL_USER", "wormholeexplorer");
-	define("MYSQL_PASSWORD", "whe");
-	define("DB_NAME", "wormholeexplorer");
-	define("TABLE_NAME", "routing");
-
-	$key=$_POST["key"];
-	$value=$_POST["value"];
-
-	$dsn = 'mysql:unix_socket='.MYSQL_SOCKET_ADDR.';dbname='.DB_NAME;
+    require 'head.php'; 
+    $key = $_POST["key"];
+    $value = $_POST["value"];
+	$dsn = 'mysql:'.MYSQL_ADDR.DB_NAME;
 	$dbh = new PDO($dsn, MYSQL_USER, MYSQL_PASSWORD);
     switch ($key)
     {
@@ -17,7 +11,7 @@
         case "parent":
         break;
         default:
-        { echo json_encode(["Unsupported method"]); return; }
+        { echo json_encode(["find: Unsupported key"]); return; }
     }
 	$sql = 'SELECT * FROM '.TABLE_NAME.' WHERE '.$key.' = :value';
 	$sth = $dbh->prepare($sql);
@@ -26,13 +20,13 @@
 		$result = $sth->fetchAll(PDO::FETCH_ASSOC);
 		//print_r($result);
 		echo json_encode($result);
-		}
+    }
 	else{
 		$result = $sth->errorInfo();
 		//print_r($result);
 		echo json_encode($result);
 		//throw new Exception(json_encode($error));
-		}
+    }
 /*
 	$options = array(
 	    PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8',
@@ -59,4 +53,5 @@
 	$table_name=TABLE_NAME;
 	$sth->execute(array(':table_name' => $table_name, ':id' => $id));
  */
+       
 ?>

@@ -1,25 +1,48 @@
-/*
+.testinput
+{
+	border:2px solid gray;
+}
 .textinput:hover
 {
 	box-shadow:0px 0px 3px 2px #95C7F8;
+    border:2px solid gray;
 }
 .textinput:focus
 {
 	box-shadow:0px 0px 3px 2px #FFCD00;
+    border:2px solid gray;
 }
-*/
+li
+{
+	list-style:none;
+}
+.container
+{
+	border:2px solid gray;
+	padding:10px;
+	margin:10px;
+}
+.content
+{
+	border:2px solid green;
+	padding:05px;
+	margin:05px;
+}
 .list_content
 {
-	font-family:"monospace"; 
-	cursor:pointer
+	border:2px solid blue;
+	padding:02px;
+	margin:02px;
+	font-family:monospace;
+	cursor:pointer;
 }
 .expanded
 {
-	background:url(./expanded.png) no-repeat top right;
+	/*background:url(./expanded.png) no-repeat 40% 0%;*/
 	font-weight:	lighter;
 }
 .collapsed
 {
-	background:url(./collapsed.png) no-repeat top right;
+	/*background:url(./collapsed.png) no-repeat 40% 0%;*/
 	font-weight:	bold;
 }

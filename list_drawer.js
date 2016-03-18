@@ -1,8 +1,8 @@
 "use strict"
 //jquery required
 $.extend({
-	class_expanded:		"expanded", 
-	class_collapsed:	"collapsed"
+	class_expanded:		expanded, 
+	class_collapsed:	collapsed
 })
 $.fn.extend({
 	list_drawer:	function(){
