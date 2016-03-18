@@ -1,8 +1,8 @@
 <?php
-	define("MYSQL_ADDR", "unix_socket=/run/mysqld/mysqld.sock;");
-	//define("MYSQL_ADDR", "host=192.168.121.243;");
-	define("DB_NAME", "dbname=wormholeexplorer;");
-	define("TABLE_NAME", "routing");
-	define("MYSQL_USER", "wormholeexplorer");
-	define("MYSQL_PASSWORD", "JKGyut2kjg34");
+	//$MYSQL_ADDR = 'unix_socket='.$_ENV["/path/to/socket"].';';
+	$MYSQL_ADDR = 'host='.$_ENV["MYSQL_PORT_3306_TCP_ADDR"].';'.'port='.$ENV["MYSQL_PORT_3306_TCP_PORT"].';';
+	$DB_NAME = $_ENV["MYSQL_INSTANCE_NAME"];
+	$TABLE_NAME = "routing";
+	$MYSQL_USER = $_ENV["MYSQL_USERNAME"];
+	$MYSQL_PASSWORD = $_ENV["MYSQL_PASSWORD"];
 ?>

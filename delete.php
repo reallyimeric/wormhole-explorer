@@ -1,10 +1,10 @@
 <?php
     require 'head.php'; 
     $id = $_POST["id"];
-	$dsn = 'mysql:'.MYSQL_ADDR.DB_NAME;
-	$dbh = new PDO($dsn, MYSQL_USER, MYSQL_PASSWORD);
-    $sql_check = 'SELECT * FROM '.TABLE_NAME.' WHERE id=:id';
-    $sql_work = 'DELETE FROM '.TABLE_NAME.' WHERE id=:id';
+	$dsn = 'mysql:'.$MYSQL_ADDR.$DB_NAME;
+	$dbh = new PDO($dsn, $MYSQL_USER, $MYSQL_PASSWORD);
+    $sql_check = 'SELECT * FROM '.$TABLE_NAME.' WHERE id=:id';
+    $sql_work = 'DELETE FROM '.$TABLE_NAME.' WHERE id=:id';
     $sth_check = $dbh->prepare($sql_check);
 	$sth_work = $dbh->prepare($sql_work);
 	$inputparam = array('id'    	=>	$id);

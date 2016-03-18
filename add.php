@@ -2,8 +2,8 @@
     require 'head.php'; 
     $parent = $_POST["parent"];
     $child = $_POST["child"];
-	$dsn = 'mysql:'.MYSQL_ADDR.DB_NAME;
-	$dbh = new PDO($dsn, MYSQL_USER, MYSQL_PASSWORD);
+	$dsn = 'mysql:'.$MYSQL_ADDR.$DB_NAME;
+	$dbh = new PDO($dsn, $MYSQL_USER, $MYSQL_PASSWORD);
     $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     /*
     $sql = 'show table status where name ='.TABLE_NAME;
@@ -13,7 +13,7 @@
     */
     try{
     $dbh->beginTransaction();
-	$sql = 'INSERT INTO '.TABLE_NAME.' (parent,child) VALUES(:parent,:child)';
+	$sql = 'INSERT INTO '.$TABLE_NAME.' (parent,child) VALUES(:parent,:child)';
 	$sth = $dbh->prepare($sql);
 	$inputparam = array('parent'	=>	$parent,
                         'child'     =>  $child);

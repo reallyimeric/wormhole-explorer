@@ -2,8 +2,8 @@
     require 'head.php'; 
     $key = $_POST["key"];
     $value = $_POST["value"];
-	$dsn = 'mysql:'.MYSQL_ADDR.DB_NAME;
-	$dbh = new PDO($dsn, MYSQL_USER, MYSQL_PASSWORD);
+	$dsn = 'mysql:'.$MYSQL_ADDR.$DB_NAME;
+	$dbh = new PDO($dsn, $MYSQL_USER, $MYSQL_PASSWORD);
     switch ($key)
     {
         case "id":
@@ -13,7 +13,7 @@
         default:
         { echo json_encode(["find: Unsupported key"]); return; }
     }
-	$sql = 'SELECT * FROM '.TABLE_NAME.' WHERE '.$key.' = :value';
+	$sql = 'SELECT * FROM '.$TABLE_NAME.' WHERE '.$key.' = :value';
 	$sth = $dbh->prepare($sql);
 	$inputparam = array('value'	=>	$value);
 	if( $sth->execute($inputparam) ){
