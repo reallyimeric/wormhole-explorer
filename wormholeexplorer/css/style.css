@@ -1,0 +1,36 @@
+.list_content
+{
+	font-family:monospace;
+	cursor:pointer;
+	list-style:none;
+}
+.expanded
+{
+	/*background:url(./expanded.png) no-repeat 40% 0%;*/
+	font-weight:	lighter;
+}
+.collapsed
+{
+	/*background:url(./collapsed.png) no-repeat 40% 0%;*/
+	font-weight:	bold;
+}
+p.footer {
+	text-align: right;
+	font-size: 11px;
+	border-top: 1px solid #D0D0D0;
+	line-height: 32px;
+	padding: 0 10px 0 10px;
+	margin: 20px 0 0 0;
+}
+body {
+	background: #000 url(/wormholeexplorer/image/bg_evegate.png) no-repeat center top fixed;
+}
+input	{
+	background-color: transparent;
+}
+.container	{
+	background-color: rgba(0,0,0,0.5);
+	color: rgb(191, 191, 191);
+}
+::selection	{ background-color: #E13300; color: white; }
+::-moz-selection { background-color: #E13300; color: white; }
