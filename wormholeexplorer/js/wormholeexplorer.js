@@ -81,12 +81,12 @@ function display(result){
     //if (xhr.readyState==4&&xhr.status==200){
     //if (this.readyState==4&&this.status==200){    //use 'this',maybe the invoker is xhr?
     ///////////////////////////////////////////////////////THIS CAN BE DONE IN ajaxquery() TO AVOID OVERWRITING VAR "xhr"
-    
+
         //if(nodb) {var result=JSON.parse('[{"id": 1,"parent": "LQ-AHE","child": "NODB-1"},{"id": 2,"parent": "LQ-AHE","child": "EXAMPLE"},{"id": 3,"parent": "LQ-AHE","child": "J123432"},{"id": 4,"parent": "LQ-AHE","child": "mariadb is NOT running"},{"id": 5,"parent": "LQ-AHE","child": "PHP WILL try to query mariadb"},{"id": 6,"parent": "LQ-AHE","child": "ONLY parent=LQ is avaliable"}]')}
         //else {var result=JSON.parse(xhr.responseText)}
 
         result=JSON.parse(result)
-        
+
 /*      var n=result.length
         var content=''
         for (var i=0;i<n;i++){
@@ -96,7 +96,7 @@ function display(result){
         //return content
 */
         var n=result.length
-    
+
         for (var i=0;i<n;i++){  //for every children after the requested parent do
             var jqs_parent="[solarsystemname='"+result[i].parent+"']"
             var jqs_child="[solarsystemname='"+result[i].child+"']"

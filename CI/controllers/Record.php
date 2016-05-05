@@ -36,10 +36,19 @@ class Record extends CI_Controller {
         $this->load->view('view');
         $this->load->view('templates/footer');
     }
-    public function add($parent, $child) {
-        $metadata = new page_metadata('adder','description!','adder');
-        $this->load->view('templates/header', $metadata->value());
-        $this->load->view('adder', $metadata->value());
-        $this->load->view('templates/footer');
+    public function recorder($p1, $p2) {
+        switch ($this->input->method()) {
+            case 'get':
+                # code...
+                break;
+            case 'post':
+                break;
+            case 'delete':
+                break;
+            default:
+                $this->output->set_status_header(405);
+                break;
+        }($this->input->method())
+        return json_encode();
     }
 }

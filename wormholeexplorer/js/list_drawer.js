@@ -1,8 +1,8 @@
 "use strict"
 //jquery required
 $.extend({
-	class_expanded:		expanded, 
-	class_collapsed:	collapsed
+	list_drawer_class_expanded:		"expanded",
+	list_drawer_class_collapsed:	"collapsed"
 })
 $.fn.extend({
 	list_drawer:	function(){
@@ -13,8 +13,8 @@ $.fn.extend({
 			//alert($(this).attr("solarsystemname")+" mouseonchild="+mouseonchild)
 			if (!mouseonchild) {
 				$(this).children("ul").toggle(250)
-				$(this).toggleClass($.class_expanded)
-				$(this).toggleClass($.class_collapsed) }
+				$(this).toggleClass($.list_drawer_class_expanded)
+				$(this).toggleClass($.list_drawer_class_collapsed) }
 		})
 	}
 })
