@@ -16,26 +16,26 @@ class Recorder extends CI_Model {
         $p2 = mb_convert_case($p2, MB_CASE_UPPER);
         switch ($p1) {
             case 'parent':
-                if (self::issolarsystem($p2)) $method_allowed = true;
-                else $method_allowed = false;
+                if (self::issolarsystem($p2)) $params_are_vaild = true;
+                else $params_are_vaild = false;
                 break;
             case 'child':
-                if (self::issolarsystem($p2)) $method_allowed = true;
-                else $method_allowed = false;
+                if (self::issolarsystem($p2)) $params_are_vaild = true;
+                else $params_are_vaild = false;
                 break;
             case 'id':
-                if (is_numeric($p2)&&($p2 > 0)) $method_allowed = true;
-                else $method_allowed = false;
+                if (is_numeric($p2)&&($p2 > 0)) $params_are_vaild = true;
+                else $params_are_vaild = false;
                 break;
             case 'time':
-                if (is_numeric($p2)) $method_allowed = true;
-                else $method_allowed = false;
+                if (is_numeric($p2)) $params_are_vaild = true;
+                else $params_are_vaild = false;
                 break;
             default:
                 return -1;
                 break;
         }
-        if (!$method_allowed) {
+        if (!$params_are_vaild) {
             return -2;
         }
         if ($p1 === 'time') {
@@ -65,26 +65,26 @@ class Recorder extends CI_Model {
         $p2 = mb_convert_case($p2, MB_CASE_UPPER);
         switch ($p1) {
             case 'parent':
-                if (self::issolarsystem($p2)) $method_allowed = true;
-                else $method_allowed = false;
+                if (self::issolarsystem($p2)) $params_are_vaild = true;
+                else $params_are_vaild = false;
                 break;
             case 'child':
-                if (self::issolarsystem($p2)) $method_allowed = true;
-                else $method_allowed = false;
+                if (self::issolarsystem($p2)) $params_are_vaild = true;
+                else $params_are_vaild = false;
                 break;
             case 'id':
-                if (is_numeric($p2)&&($p2 > 0)) $method_allowed = true;
-                else $method_allowed = false;
+                if (is_numeric($p2)&&($p2 > 0)) $params_are_vaild = true;
+                else $params_are_vaild = false;
                 break;
             case 'time':
-                if (is_numeric($p2)) $method_allowed = true;
-                else $method_allowed = false;
+                if (is_numeric($p2)) $params_are_vaild = true;
+                else $params_are_vaild = false;
                 break;
             default:
                 return -1;
                 break;
         }
-        if (!$method_allowed) {
+        if (!$params_are_vaild) {
             return -2;
         }
         $query = $this->db->from("routing")->where($p1, $p2)
