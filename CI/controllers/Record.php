@@ -5,7 +5,6 @@ class Record extends CI_Controller {
 
     public function __construct()   {
         parent::__construct();
-        $this->load->model('Recorder');
         $this->load->helper('url_helper');
     }
 
@@ -24,31 +23,66 @@ class Record extends CI_Controller {
 	 * map to /index.php/welcome/<method_name>
 	 * @see https://codeigniter.com/user_guide/general/urls.html
      */
-    public function index() {
+    public function index($p1=null, $p2=null){
+        if ($p1 === null) self::viewpage($this);
+        else self::processrequest($this, $p1, $p2);
+    }
+    static private function viewpage($that){
         $metadata = new page_metadata(
             'Explorer',
             'Find your way home, or manage corp'."'".'s waypoint',
             'utf-8',
             'Exploring...',
             ['/wormholeexplorer/css/style.css', '/wormholeexplorer/css/cistyle.css'],
-            ['/wormholeexplorer/js/wormholeexplorer.js', '/wormholeexplorer/js/list_drawer.js']);
-        $this->load->view('templates/header', $metadata->value());
-        $this->load->view('view');
-        $this->load->view('templates/footer');
+            ['/wormholeexplorer/js/frontend.js', '/wormholeexplorer/js/list_drawer.js']);
+        $that->load->view('templates/header', $metadata->value());
+        $that->load->view('view');
+        $that->load->view('templates/footer');
     }
-    public function recorder($p1, $p2) {
-        switch ($this->input->method()) {
-            case 'get':
-                # code...
+    static private function processrequest($that, $p1, $p2){
+        $that->load->model('Recorder');
+        switch ($that->input->method(true)) {
+            case 'GET':
+                $returned = $that->Recorder->getrecord($p1, $p2);
+                if ($returned < 0) self::errorhandler($that, $returned);
+                else {
+                    $that->output->set_content_type('application/json');
+                    echo $returned;
+                }
                 break;
-            case 'post':
+            case 'POST':
+                $returned = $that->Recorder->postrecord($p1, $p2);
+                if ($returned < 0) self::errorhandler($that, $returned);
+                else {
+                    $that->output->set_content_type('application/json');
+                    echo $returned;
+                }
                 break;
-            case 'delete':
+            case 'DELETE':
+                $returned = $that->Recorder->deleterecord($p1, $p2);
+                if ($returned < 0) self::errorhandler($that, $returned);
+                else {
+                    $that->output->set_content_type('application/json');
+                    echo $returned;
+                }
                 break;
             default:
-                $this->output->set_status_header(405);
+                $that->output->set_status_header(405);
                 break;
-        }($this->input->method())
-        return json_encode();
+        }
+    }
+    static private function errorhandler($that, $returned){
+        $that->output->set_status_header(403);
+        switch ($returned) {
+            case '-1':
+                echo "query method not allowed";
+                break;
+            case '-2':
+                echo "illegal parameter";
+                break;
+            default:
+                echo "blablabla, whatever, i don't know";
+                break;
+        }
     }
 }
