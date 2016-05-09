@@ -36,17 +36,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 });
             </script>
         </div>
-        <div class="col-sm-6 col-md-6 list_content">
-            <ul class="list-group">
-                <li class="list-group-item" solarsystemname="root">root
-                </li>
-            </ul>
-            <!--
-            <p>
-                <input type="text" id="solarsystemname" />
-                <input type="button" value="ADD (temporarily)" onclick=add_to_base() />
-            </p>
-            -->
+        <div class="col-sm-6 col-md-6 list_content panel panel-default">
+            <div class="panel-heading">
+                <b>list:</b>
+            </div>
+            <div id="tree" class="panel-body fancytree-colorize-hover fancytree-fade-expander">
+            </div>
+            <div class="panel-footer">
+                <button id="btnExpandAll" class="btn btn-xs btn-primary">Expand all</button>
+                <button id="btnCollapseAll" class="btn btn-xs btn-warning">Collapse all</button>
+            </div>
         </div>
     </div>
     <div>                 <!--clipboard-->
@@ -81,4 +80,33 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             }
         </script>
     </div>
+
+    <script>
+        $(function(){
+            // Initialize Fancytree
+            var get_url = "/wormholeexplorer/Record/fancytree/parent/root"
+            $("#tree").fancytree({
+              extensions: ["edit"],
+              checkbox: true,
+              selectMode: 2,
+              source: {url: get_url, debugDelay: 1000},
+              toggleEffect: { effect: "drop", options: {direction: "left"}, duration: 400 },
+              wide: {
+                iconWidth: "1em",     // Adjust this if @fancy-icon-width != "16px"
+                iconSpacing: "0.5em", // Adjust this if @fancy-icon-spacing != "3px"
+                levelOfs: "1.5em"     // Adjust this if ul padding != "16px"
+              },
+
+              icon: function(event, data){
+                // if( data.node.isFolder() ) {
+                //   return "glyphicon glyphicon-book";
+                // }
+              },
+              lazyLoad: function(event, data) {
+                data.result = {url: "ajax-sub2.json", debugDelay: 1000};
+              }
+            });
+        })
+    </script>
+
 </div>
