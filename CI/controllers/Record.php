@@ -42,7 +42,8 @@ class Record extends CI_Controller {
             ['/wormholeexplorer/js/frontend.js',
             '//cdn.bootcss.com/jqueryui/1.12.0-rc.2/jquery-ui.min.js',
             '/node_modules/jquery.fancytree/dist/jquery.fancytree.min.js',
-            '/node_modules/jquery.fancytree/dist/src/jquery.fancytree.edit.js']);
+            '/node_modules/jquery.fancytree/dist/src/jquery.fancytree.edit.js',
+            '/node_modules/jquery.fancytree/dist/src/jquery.fancytree.glyph.js']);
         $that->load->view('templates/header', $metadata->value());
         $that->load->view('view');
         $that->load->view('templates/footer');
@@ -107,7 +108,7 @@ class Record extends CI_Controller {
                 $targetarray = [];
                 foreach ($returned as $key => $value) {
                     //$targetarray->append([ 'title' => $value->child]);
-                    array_push($targetarray, [ 'title' => $value->child]);
+                    array_push($targetarray, [ 'title' => $value->child, 'folder' => true, 'lazy' => true]);
                 }
                 $result = json_encode($targetarray);
             }

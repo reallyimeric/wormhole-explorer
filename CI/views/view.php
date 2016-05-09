@@ -82,14 +82,34 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     </div>
 
     <script>
+        glyph_opts = {
+            map: {
+                doc: "glyphicon glyphicon-file",
+                docOpen: "glyphicon glyphicon-file",
+                checkbox: "glyphicon glyphicon-unchecked",
+                checkboxSelected: "glyphicon glyphicon-check",
+                checkboxUnknown: "glyphicon glyphicon-share",
+                dragHelper: "glyphicon glyphicon-play",
+                dropMarker: "glyphicon glyphicon-arrow-right",
+                error: "glyphicon glyphicon-warning-sign",
+                expanderClosed: "glyphicon glyphicon-menu-right",
+                expanderLazy: "glyphicon glyphicon-menu-right",  // glyphicon-plus-sign
+                expanderOpen: "glyphicon glyphicon-menu-down",  // glyphicon-collapse-down
+                folder: "glyphicon glyphicon-folder-close",
+                folderOpen: "glyphicon glyphicon-folder-open",
+                loading: "glyphicon glyphicon-refresh glyphicon-spin"
+            }
+        };
+
         $(function(){
             // Initialize Fancytree
-            var get_url = "/wormholeexplorer/Record/fancytree/parent/root"
+            var initial_url = "/wormholeexplorer/Record/fancytree/parent/root"
             $("#tree").fancytree({
-              extensions: ["edit"],
+              extensions: ["edit", "glyph"],
               checkbox: true,
+              glyph: glyph_opts,
               selectMode: 2,
-              source: {url: get_url, debugDelay: 1000},
+              source: {url: initial_url, debugDelay: 1000},
               toggleEffect: { effect: "drop", options: {direction: "left"}, duration: 400 },
               wide: {
                 iconWidth: "1em",     // Adjust this if @fancy-icon-width != "16px"
@@ -103,7 +123,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 // }
               },
               lazyLoad: function(event, data) {
-                data.result = {url: "ajax-sub2.json", debugDelay: 1000};
+                data.result = {url: "/wormholeexplorer/Record/fancytree/parent/"+data.node.title, debugDelay: 1000};
               }
             });
         })
