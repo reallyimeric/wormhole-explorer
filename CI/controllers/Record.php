@@ -27,14 +27,22 @@ class Record extends CI_Controller {
         if ($p1 === null) self::viewpage($this);
         else self::processrequest($this, $p1, $p2);
     }
+    public function fancytree($p1=null, $p2=null){
+        self::processfancytreerequest($this, $p1, $p2);
+    }
     static private function viewpage($that){
         $metadata = new page_metadata(
             'Explorer',
             'Find your way home, or manage corp'."'".'s waypoint',
             'utf-8',
             'Exploring...',
-            ['/wormholeexplorer/css/style.css', '/wormholeexplorer/css/cistyle.css'],
-            ['/wormholeexplorer/js/frontend.js', '/wormholeexplorer/js/list_drawer.js']);
+            ['/wormholeexplorer/css/style.css',
+            '/wormholeexplorer/css/cistyle.css',
+            '/node_modules/jquery.fancytree/dist/skin-bootstrap/ui.fancytree.min.css'],
+            ['/wormholeexplorer/js/frontend.js',
+            '//cdn.bootcss.com/jqueryui/1.12.0-rc.2/jquery-ui.min.js',
+            '/node_modules/jquery.fancytree/dist/jquery.fancytree.min.js',
+            '/node_modules/jquery.fancytree/dist/src/jquery.fancytree.edit.js']);
         $that->load->view('templates/header', $metadata->value());
         $that->load->view('view');
         $that->load->view('templates/footer');
@@ -82,6 +90,44 @@ class Record extends CI_Controller {
                 break;
             default:
                 echo "blablabla, whatever, i don't know";
+                break;
+        }
+    }
+    static private function processfancytreerequest($that, $p1, $p2){
+        if ($that->input->method(true) === 'GET') {
+            $that->load->model('Recorder');
+            $that->output->set_content_type('application/json');
+            $returned = $that->Recorder->getrecord($p1, $p2);
+            if ($returned < 0) {
+                $result = self::fancytreeerrorhandler($that, $returned);
+            }
+            else {
+                $returned = json_decode($returned);
+                //$targetarray = new ArrayObject(); //not use ArrayObject for json_encode() always return a nested object
+                $targetarray = [];
+                foreach ($returned as $key => $value) {
+                    //$targetarray->append([ 'title' => $value->child]);
+                    array_push($targetarray, [ 'title' => $value->child]);
+                }
+                $result = json_encode($targetarray);
+            }
+            echo $result;
+        }
+        else {
+            $that->output->set_status_header(405);
+        }
+    }
+    static private function fancytreeerrorhandler($that, $returned){
+        $that->output->set_status_header(403);
+        switch ($returned) {
+            case '-1':
+                return json_encode([['title' => "query method not allowed"]]);
+                break;
+            case '-2':
+                return json_encode([['title' => "illegal parameter"]]);
+                break;
+            default:
+                return json_encode([['title' => "blablabla, whatever, i don't know"]]);
                 break;
         }
     }
