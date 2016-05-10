@@ -40,6 +40,7 @@ class Record extends CI_Controller {
             '/wormholeexplorer/css/cistyle.css',
             '/node_modules/jquery.fancytree/dist/skin-bootstrap/ui.fancytree.min.css'],
             ['/wormholeexplorer/js/frontend.js',
+            '/wormholeexplorer/js/fancytree.js',
             '//cdn.bootcss.com/jqueryui/1.12.0-rc.2/jquery-ui.min.js',
             '/node_modules/jquery.fancytree/dist/jquery.fancytree.min.js',
             '/node_modules/jquery.fancytree/dist/src/jquery.fancytree.edit.js',
