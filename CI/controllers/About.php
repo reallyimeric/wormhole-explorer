@@ -20,14 +20,16 @@ class About extends CI_Controller {
 	 */
 	public function index()
 	{
-            $title = 'About';
-            $metadata = new page_metadata(
+		$this->load->helper('page_metadata');
+        $title = 'About';
+        $metadata = new page_metadata(
             $title,
             'Hi, google! This is an about page. My title is "'.$title.'".',
             'utf-8',
             'About',
-            ['/wormholeexplorer/css/cistyle.css']);      //i should do this in my helper and use base_url() from url helper
-                $this->load->view('templates/header', $metadata->value());
+            ['/wormholeexplorer/css/cistyle.css']
+		);      //i should do this in my helper and use base_url() from url helper
+        $this->load->view('templates/header', $metadata->value());
 		$this->load->view('about');
 		$this->load->view('templates/footer');
 	}
