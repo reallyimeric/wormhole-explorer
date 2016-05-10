@@ -98,7 +98,7 @@ switch (ENVIRONMENT)
  * Include the path if the folder is not in the same directory
  * as this file.
  */
-	$system_path = "/usr/share/pear/codeigniter/system";
+	$system_path = "/var/www/html/vendor/codeigniter/framework/system";
 
 /*
  *---------------------------------------------------------------
@@ -113,7 +113,7 @@ switch (ENVIRONMENT)
  *
  * NO TRAILING SLASH!
  */
-	$application_folder = "/mnt/ntfs/Users/eric/Desktop/trivia/wormholeexplorer/CI";
+	$application_folder = "/var/www/html/CI";
 
 /*
  *---------------------------------------------------------------
