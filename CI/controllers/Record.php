@@ -5,7 +5,7 @@ class Record extends CI_Controller {
 
     public function __construct()   {
         parent::__construct();
-        $this->load->helper('url_helper');
+        $this->load->helper('url_helper');      //is it needed? did I use base_url()?
     }
 
 	/**
@@ -31,6 +31,7 @@ class Record extends CI_Controller {
         self::processfancytreerequest($this, $p1, $p2);
     }
     static private function viewpage($that){
+        $that->load->helper('page_metadata');       //but im static
         $metadata = new page_metadata(
             'Explorer',
             'Find your way home, or manage corp'."'".'s waypoint',
