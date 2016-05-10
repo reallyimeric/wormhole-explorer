@@ -10,6 +10,7 @@ RUN php composer-setup.php
 RUN php -r "unlink('composer-setup.php');"
 RUN apt-get update
 RUN apt-get -y install npm
+RUN apt-get -y install git
 
 # /var/www/html/ 为 Apache 目录
 COPY . /var/www/html/
