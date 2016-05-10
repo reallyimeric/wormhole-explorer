@@ -1,0 +1,23 @@
+{
+  "name": "wormholeexplorer",
+  "version": "0.0.0",
+  "description": "",
+  "main": "",
+  "dependencies": {
+    "jquery.fancytree": "^2.18.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo 'i\\'m different\\n'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/reallyimeric/wormhole-explorer.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/reallyimeric/wormhole-explorer/issues"
+  },
+  "homepage": "https://github.com/reallyimeric/wormhole-explorer#readme"
+}
