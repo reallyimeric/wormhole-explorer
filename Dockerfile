@@ -17,3 +17,4 @@ COPY . /var/www/html/
 
 RUN php composer.phar install
 RUN npm install
+RUN ln -s ../mods-available/rewrite.load /etc/apache2/mods-enabled/
