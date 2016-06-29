@@ -1,1 +1,0 @@
-wormholeexplorer/js/list_drawer.js
