@@ -1,1 +1,0 @@
-wormholeexplorer/js/wormholeexplorer.js
