@@ -75,10 +75,10 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => 'wormholeexplorer',
-	'username' => 'wormholeexplorer',
-	'password' => 'wormholeexplorer',
-	'database' => 'wormholeexplorer',
+	'hostname' => $_ENV["MYSQL_PORT_3306_TCP_ADDR"].':'.$_ENV["MYSQL_PORT_3306_TCP_PORT"],
+	'username' => $_ENV["MYSQL_USERNAME"],
+	'password' => $_ENV["MYSQL_PASSWORD"],
+	'database' => $_ENV["MYSQL_INSTANCE_NAME"],
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
 	'pconnect' => FALSE,
