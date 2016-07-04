@@ -19,7 +19,7 @@
 
     $(function(){
         // Initialize Fancytree
-        var initial_url = "/wormholeexplorer/Record/fancytree/parent/root"
+        var initial_url = "/Record/fancytree/parent/root"
         $("#tree").fancytree({
           extensions: ["edit", "glyph"],
           checkbox: true,
@@ -39,7 +39,7 @@
             // }
           },
           lazyLoad: function(event, data) {
-            data.result = {url: "/wormholeexplorer/Record/fancytree/parent/"+data.node.title, debugDelay: 1000};
+            data.result = {url: "/Record/fancytree/parent/"+data.node.title, debugDelay: 1000};
           }
         });
 

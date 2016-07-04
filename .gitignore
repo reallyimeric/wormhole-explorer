@@ -1,4 +1,4 @@
 tags
-CI/config/database.php
+src/CI/config/database.php
 node_modules/
 vendor/
