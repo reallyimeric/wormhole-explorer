@@ -37,15 +37,15 @@ class Record extends CI_Controller {
             'Find your way home, or manage corp'."'".'s waypoint',
             'utf-8',
             'Exploring...',
-            ['/wormholeexplorer/css/style.css',
-            '/wormholeexplorer/css/cistyle.css',
-            '/node_modules/jquery.fancytree/dist/skin-bootstrap/ui.fancytree.min.css'],
-            ['/wormholeexplorer/js/frontend.js',
-            '/wormholeexplorer/js/fancytree.js',
+            ['css/style.css',
+            'css/cistyle.css',
+            'css/ui.fancytree.min.css'],
+            ['js/frontend.js',
+            'js/fancytree.js',
             '//cdn.bootcss.com/jqueryui/1.12.0-rc.2/jquery-ui.min.js',
-            '/node_modules/jquery.fancytree/dist/jquery.fancytree.min.js',
-            '/node_modules/jquery.fancytree/dist/src/jquery.fancytree.edit.js',
-            '/node_modules/jquery.fancytree/dist/src/jquery.fancytree.glyph.js']);
+            'js/jquery.fancytree.min.js',
+            'js/jquery.fancytree.edit.js',
+            'js/jquery.fancytree.glyph.js']);
         $that->load->view('templates/header', $metadata->value());
         $that->load->view('view');
         $that->load->view('templates/footer');

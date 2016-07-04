@@ -27,7 +27,7 @@ class About extends CI_Controller {
             'Hi, google! This is an about page. My title is "'.$title.'".',
             'utf-8',
             'About',
-            ['/wormholeexplorer/css/cistyle.css']
+            ['css/cistyle.css']
 		);      //i should do this in my helper and use base_url() from url helper
         $this->load->view('templates/header', $metadata->value());
 		$this->load->view('about');

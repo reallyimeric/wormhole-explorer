@@ -23,7 +23,7 @@ p.footer {
 	margin: 20px 0 0 0;
 }
 body {
-	background: #000 url(/wormholeexplorer/image/bg_evegate.png) no-repeat center top fixed;
+	background: #000 url(../image/bg_evegate.png) no-repeat center top fixed;
 }
 input	{
 	background-color: transparent;
