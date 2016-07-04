@@ -4,9 +4,15 @@
   "description": "",
   "main": "",
   "dependencies": {
-    "jquery.fancytree": "^2.18.0"
+    "bootstrap": "^3.3.6",
+    "jquery": "^3.0.0",
+    "jquery.fancytree": "^2.18.0",
+    "jqueryui": "^1.11.1"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-clean": "^0.3.2"
+  },
   "scripts": {
     "test": "echo 'i\\'m different\\n'"
   },

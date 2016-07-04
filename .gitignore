@@ -3,3 +3,4 @@ tags
 src/CI/config/database.php
 node_modules/
 vendor/
+wormholeexplorer/

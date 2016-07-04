@@ -5,9 +5,9 @@
         <title><?php echo htmlentities($title); ?> - Wormhole Explorer</title>
         <meta name="description" content="<?php echo htmlentities($description); ?>">
         <meta charset="<?php echo htmlentities($charset); ?>">
-        <script src="//cdn.bootcss.com/jquery/2.2.1/jquery.min.js"></script>
-        <script src="//cdn.bootcss.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-        <link href="//cdn.bootcss.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+        <script src="js/jquery.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <link href="css/bootstrap.min.css" rel="stylesheet">
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 <?php
     foreach($css as $acss){

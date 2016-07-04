@@ -42,7 +42,7 @@ class Record extends CI_Controller {
             'css/ui.fancytree.min.css'],
             ['js/frontend.js',
             'js/fancytree.js',
-            '//cdn.bootcss.com/jqueryui/1.12.0-rc.2/jquery-ui.min.js',
+            'js/jquery-ui.min.js',
             'js/jquery.fancytree.min.js',
             'js/jquery.fancytree.edit.js',
             'js/jquery.fancytree.glyph.js']);
