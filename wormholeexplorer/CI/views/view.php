@@ -5,12 +5,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <div class="col-sm-6 col-md-6">
             <h4>TODO</h4>
             <ul>
-                <li>移出部分js到js/下;</li>
                 <li>每一条目前以“&lt;(holeid)”表示上一星系(root除外);</li>
                 <li>每一条目后添加删除/查看/新建子星系,设为路径点/终点等选项;</li>
-                <li>登录相关内容.</li>
                 <li>I never stretch bg, nor repeat it. Sorry for 1366x768, but your IGB window should not be larger ;-)</li>
-                <li>让php/mariadb自动删除旧记录.</li>
             </ul>
             <div class="result">                    <!--selected by script-->
                 <p><span id="hover">鼠标指向即被选定的result:</span></p>
