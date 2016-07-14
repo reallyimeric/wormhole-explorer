@@ -1,3 +1,0 @@
-RewriteEngine on
-RewriteCond $1 !^(index\.php|opensearch.xml|robots\.txt|favicon\.ico|image|js|css|fonts)
-RewriteRule ^(.*)$ index.php/$1 [L]
